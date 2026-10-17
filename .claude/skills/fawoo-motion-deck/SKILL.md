@@ -11,7 +11,7 @@ description: "화우나노텍 발표 덱(IR·사업설명·정책보고·영업 
 
 | 환경 | 렌더링 방식 |
 |---|---|
-| Claude 데스크톱/웹 + 디자인 시스템 등록됨 | `PPT Motion Kit Design System`(또는 화우 버전) 체크 후 덱 생성 → Export |
+| Claude 데스크톱/웹 + 디자인 시스템 등록됨 | `PPT Motion Kit Design System`(https://claude.ai/artifact/Qyn4Y2sBsdfZBkVL7DL2Qr) 체크 후 덱 생성 → Export |
 | 디자인 시스템 미등록 / Claude Code | `anthropic-skills:pptx`로 .pptx 생성, 모션이 필요한 장은 단일 HTML(Chrome 재생)로 별도 생성 |
 
 디자인 시스템이 체크돼 있는지 먼저 확인한다. 안 돼 있으면 사용자에게 한 줄로 알리고 위 대체 경로로 진행한다.
@@ -47,7 +47,8 @@ description: "화우나노텍 발표 덱(IR·사업설명·정책보고·영업 
 
 ## 3. 화우 고정 규칙
 
-- 색: 강조 `#1F5C99`(화우 남색), 보조 `#0E7490`(틸), 본문 `#16202C`, 어두운 배경(11·12번) `#12365C`. 경고만 `#DC2626`.
+- 색: 키트 기본값 그대로. 강조 `a #416180`, 보조 `b #94BCE3`, 배경 `bg #F2F2F3`, 어두운 배경(11·12번) `dark #1D2D3D`. 상태색(빨강·초록) 쓰지 않음. 강조 항목은 한 장에 1~2개.
+- 글꼴 숫자: Barlow Condensed.
 - 글꼴: Pretendard. 발표 PC에 없으면 키트 `fonts/` 폴더 글꼴 설치 안내.
 - 개조식, 명사형 종결. em dash(`—`) 금지, '축' 단어 금지.
 - 전문용어·약어는 처음 나올 때 괄호로 풀이. 예: CCU(Carbon Capture & Utilization, 탄소 포집·활용).
@@ -64,14 +65,8 @@ description: "화우나노텍 발표 덱(IR·사업설명·정책보고·영업 
 | 수정 필요 | PowerPoint(.pptx) / Google Slides | 편집 가능, 모션 일부 손실 |
 | SNS·홍보 | Video(MP4) | 차트 모션 영상화 |
 
-## 5. 디자인 시스템 화우 색 적용 프롬프트 (등록 전 1회)
+## 5. 디자인 시스템 참조
 
-키트 폴더를 붙이고 실행:
-```
-config.js의 색과 글꼴만 아래로 바꿔줘. 차트 코드는 수정하지 마.
-강조색: [#1F5C99]
-보조색: [#0E7490]
-어두운 배경색(11·12번): [#12365C]
-강조색이 밝은 배경에서 잘 안 읽히면 더 진한 톤을 제안해줘.
-```
-그 다음 바뀐 폴더로 디자인 시스템을 만들고 이름을 `Fawoo Motion Design System`으로 정한다.
+- 디자인 시스템: https://claude.ai/artifact/Qyn4Y2sBsdfZBkVL7DL2Qr (토큰, 차트 컴포넌트 12종, Pretendard, 데이터 교체 프롬프트 포함)
+- 컴포넌트 이름: LineDraw(01) BarGrowH(02) Dumbbell(03) WaffleFill(04) RingGauge(05) TreemapPop(06) SlopeChart(07) BarGrowV(08) StepFunnel(09) CountUp(10) RankLine(11) TitleMask(12)
+- 덱을 만들기 전에 디자인 시스템의 `project/README.md`를 먼저 읽는다.
