@@ -1,0 +1,1 @@
+source: https://github.com/heygen-com/hyperframes/tree/main/skills/general-video @ 2927bf0 (Apache-2.0)
