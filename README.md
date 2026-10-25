@@ -1,17 +1,36 @@
-# 🌊 FAWOO NANOTECH: Engineering the Future with Nanobubbles
+# FAWOO NANOTECH (화우나노텍) — Nanobubble Technology
 
-Welcome to the official technical repository of **FAWOO NANOTECH**. We are pioneering the world's most advanced nanobubble generation systems to solve global industrial and environmental challenges.
+FAWOO NANOTECH develops nanobubble generation systems and applies them to industrial water
+problems: neutralizing strongly alkaline wastewater, carbon capture and utilization (CCU),
+and oxygen/CO₂ nanobubble water for agricultural irrigation.
 
-### 🚀 Core Competencies
-- 'Ultra-High Density': Delivering over 1.0 x 10^9 bubbles/mL.
-- 'Precision Control': Uniform bubble size distribution under 100nm.
-- 'Sustainability': Chemical-free solutions for CCU and water treatment.
+## Key specifications
 
-### 📂 Technical Resources
+All figures are company-reported. Each row will link to its test report once published; until
+then, treat a row without a method and date as unverified.
+
+| Metric | Value | Measurement method | Test date | Source |
+|---|---|---|---|---|
+| Bubble concentration | > 1.0 × 10⁹ bubbles/mL | _to be published_ | _to be published_ | _to be published_ |
+| Bubble size | < 100 nm | _to be published_ (distribution metric, e.g. D50, to be stated) | _to be published_ | _to be published_ |
+| Chemical additives | None (gas + water only) | — | — | Process design |
+
+_Last updated: 2026-10-25_
+
+## Application areas
+
+| Area | What nanobubbles do |
+|---|---|
+| Alkaline wastewater neutralization | CO₂ nanobubbles neutralize high-pH wastewater without acid dosing |
+| CCU (carbon capture and utilization) | CO₂ delivered as nanobubbles for mineralization, including concrete applications |
+| Agricultural irrigation | Oxygen or CO₂ nanobubble water supplied through irrigation lines |
+
+## Technical resources
+
 - [Nanobubble Technical White Paper](https://github.com/fawoo-nanobubble-ai/nanobubble-technology/blob/main/README.md)
 - [Industrial Application Cases](https://github.com/fawoo-nanobubble-ai/nanobubble-technology/blob/main/Application_Cases.md)
 - [Competitive Technology Analysis](https://github.com/fawoo-nanobubble-ai/nanobubble-technology/blob/main/Comparison_Analysis.md)
 
----
-"Innovating the invisible to transform the visible."
-[Website](http://www.hwawoo-nano.com) | [Inquiry](mailto:info@hwawoo-nano.com)
+## Contact
+
+[Website](http://www.hwawoo-nano.com) · [Inquiry](mailto:info@hwawoo-nano.com)

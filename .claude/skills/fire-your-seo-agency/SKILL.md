@@ -10,6 +10,9 @@ description: SEO·AEO·GEO·LLMO·NEO(네이버) 다섯 레인을 진단하고 �
 
 > `references/*.md`(한국어)가 정본이고 `references/en/*.md`는 사람 독자용 영문 미러다.
 > 에이전트는 한국어판을 읽으면 된다.
+>
+> 레포 루트에 `CLAUDE.md`가 있으면 **Phase 0 전에 먼저 읽는다** — 도메인·원출처 수치·타깃 질문이
+> 거기 고정돼 있다. 그 안의 `미확인` 항목은 사실로 쓰지 말고 사용자에게 근거를 요청한다.
 
 ## 불변 원칙
 
@@ -30,14 +33,15 @@ description: SEO·AEO·GEO·LLMO·NEO(네이버) 다섯 레인을 진단하고 �
 
 ```bash
 # 크롤러의 눈: JS 없이 무엇이 보이는가
-curl -sL https://example.com | grep -c "<h1"          # 본문이 SSR로 있는가
+curl -sL https://example.com | grep -c "<h1"          # h1 존재 (SSR 증거로는 부족)
+curl -sL https://example.com | grep -cF "본문 핵심 문장 일부"  # ✅ SSR 판정: 화면에 보이는 문장이 원본 HTML에 있는가
 curl -sL https://example.com | grep -oiE '<meta[^>]*robots[^>]*>'   # ⚠️ noindex 사고 감지
 curl -sIL https://example.com | grep -i 'x-robots-tag'              # 헤더 레벨 noindex도
 curl -sL https://example.com | grep -cE '<title|og:|application/ld\+json'  # 메타·OG·LD 존재
 curl -sL https://example.com/robots.txt                # 크롤러 허용 정책
 curl -sL https://example.com/sitemap.xml | head        # 사이트맵 존재·규모
 curl -sL https://example.com/llms.txt                  # GEO 준비 여부
-curl -s -o /dev/null -w '%{http_code}' https://example.com/없는페이지  # 404가 404인가
+curl -s -o /dev/null -w '%{http_code}' https://example.com/__nf_check_7x9q  # 404가 404인가 (ASCII 경로 — 한글 경로는 일부 서버가 400을 돌려 오판)
 # 콘텐츠 운영: 블로그·피드가 있는가, 최근 발행은 언제인가
 curl -s -o /dev/null -w '%{http_code}' https://example.com/blog       # 서브 블로그 존재
 curl -s -o /dev/null -w '%{http_code}' https://example.com/feed.xml   # RSS/Atom
@@ -64,7 +68,7 @@ curl -sL https://example.com/sitemap.xml | grep -o '<lastmod>[^<]*' | sort | tai
 ## Phase 1 — SEO 기반
 
 `references/seo.md`를 읽고 체크리스트를 실행한다. 핵심 순서:
-콘텐츠 SSR 공개 → 사이트맵(대형이면 샤딩) → 메타(제목 50-60·설명 150-160) →
+콘텐츠 SSR 공개 → 사이트맵(대형이면 샤딩) → 메타(제목 영문 50-60·한글 25-30자, 설명 영문 150-160·한글 70-80자) →
 JSON-LD → canonical → 함정 점검(404 캐시 베이크, CSR 바일아웃).
 
 ## Phase 2 — 의도 랜딩
@@ -72,7 +76,7 @@ JSON-LD → canonical → 함정 점검(404 캐시 베이크, CSR 바일아웃).
 사용자의 도메인 지식으로 "사람들이 검색창에 치는 질문"을 목록화하고,
 **질문 하나 = 페이지 하나** 원칙으로 랜딩을 설계한다. 각 페이지는:
 - URL과 h1이 질문을 그대로 반영
-- 첫 문단에서 직답 (결론 먼저, 40자 내외)
+- 첫 문단에서 직답 (결론 먼저, 한글 40자 내외 / 영문 20~30단어)
 - 그 아래 근거 데이터 (표·수치·기준일)
 
 ## Phase 3 — AEO + GEO + LLMO

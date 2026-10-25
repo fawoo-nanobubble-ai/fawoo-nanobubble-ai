@@ -2,11 +2,19 @@
 
 The lane that makes generative AI **cite you as the primary source** when it reads the web
 through browsing/search tools. It overlaps with AEO, but generative engines ① run different
-crawlers ② read llms.txt ③ reward the *original source* much more strongly.
+crawlers ② reward the *original source* much more strongly. llms.txt is a secondary aid
+(see ⚠️ below).
 
 ## 1. llms.txt
 
-`/llms.txt` at the site root — a site guide addressed to AI. Format is markdown:
+`/llms.txt` at the site root — a site guide addressed to AI (the llmstxt.org proposal).
+
+> ⚠️ **Unproven effect.** No major search or generative engine has officially confirmed using
+> llms.txt as an indexing or citation signal (Google has said it does not). It is cheap, so we
+> ship it alongside — but never treat a missing llms.txt as the first suspect when you are not
+> cited. Check crawler access, SSR and original-source status first.
+
+Format is markdown:
 
 ```markdown
 # Service Name
@@ -75,12 +83,14 @@ else's data loses the citation to the original.
       observations)
 - [ ] Name that number and always serve it from the same page (stable URL = citation address)
 - [ ] Paragraph-level citability: when each paragraph carries
-      [subject + number + as-of date + methodology], it gets cited as a unit — measured:
-      both Naver AI Briefing and Perplexity clip at exactly this granularity
+      [subject + number + as-of date + methodology], it tends to get cited as a unit — the
+      original author observed Naver AI Briefing and Perplexity clipping at this granularity
+      (no public sample data; verify on your own site with section 4)
 
 ## 4. Verification
 
 - Ask real questions in Perplexity and ChatGPT (search mode) and check whether your domain
   appears in the source list
-- Not appearing? Check in order: llms.txt exists → crawlers allowed → that page is SSR →
-  a competing original source exists
+- Not appearing? Check in order: crawlers allowed (robots.txt, WAF, Bing index) → that page
+  is SSR → a competing original source exists → paragraph self-containment → llms.txt listing
+  (llms.txt is the last, secondary item)
