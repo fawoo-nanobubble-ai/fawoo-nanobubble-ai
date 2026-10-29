@@ -4,7 +4,8 @@
   },
   "enabledPlugins": {
     "hyperframes@hyperframes": true,
-    "lemo-opuscar@lemolab": true
+    "lemo-opuscar@lemolab": true,
+    "animate@animate": true
   },
   "extraKnownMarketplaces": {
     "hyperframes": {
@@ -17,6 +18,12 @@
       "source": {
         "source": "github",
         "repo": "lemomo-ai/lemo-opuscar"
+      }
+    },
+    "animate": {
+      "source": {
+        "source": "github",
+        "repo": "cth9191/animate"
       }
     }
   }
