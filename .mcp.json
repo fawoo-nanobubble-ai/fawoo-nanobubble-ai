@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "maxfusion": {
+      "type": "http",
+      "url": "https://mcp.maxfusion.ai/mcp"
+    }
+  }
+}
