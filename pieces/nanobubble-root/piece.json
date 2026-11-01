@@ -1,0 +1,9 @@
+{
+  "name": "nanobubble-root",
+  "title": "산소 나노버블이 뿌리에 산소를 전하는 원리",
+  "format": { "width": 1080, "height": 1920, "fps": 24, "bpm": 120, "duration": 15.0, "frames": 360 },
+  "storyFormat": "one page, camera travel (no cuts, no morphs); voice-led clock",
+  "style": "sketchbook",
+  "formats": ["9:16"],
+  "review": { "safe": { "top": 240, "bottom": 420, "right": 140 }, "refs": {} }
+}

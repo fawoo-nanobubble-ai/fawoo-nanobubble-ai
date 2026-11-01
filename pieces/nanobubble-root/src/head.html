@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>산소 나노버블 — 뿌리의 숨</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #1d1a17; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { height: min(100vh, calc(100vw * 16 / 9)); width: auto; aspect-ratio: 9 / 16; display: block; cursor: pointer; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+"use strict";
+// =====================================================================
+//  NANOBUBBLE ROOT — 9:16, 15.0s @ 120 BPM, 24fps, sketchbook.
+//  A drooping sprout in a hydroponic jar. Big bubbles rise and pop; a tiny terracotta oxygen nanobubble
+//  stays in the water, drifts to the root and gives it oxygen; the root is inked over, the sprout stands up.
+//  Device: the big ones leave, the tiny one stays and feeds the root.
+//  Times are placed on the estimated voice-over (Korean, ~5.5 syllables/s); retime the cues when the real takes exist.
+// =====================================================================
+const FPS = 24, W = 1080, H = 1920;
+const BPM = 120, BEAT = 60 / BPM, E8 = BEAT / 2, E16 = BEAT / 4;
+const DURATION = 15.0;
+const NFRAMES = Math.round(DURATION * FPS);
+const LOOP_T = NFRAMES / FPS;
+const SAFE = { top: 240, bottom: 420, right: 140 };
+const HAND = '"Nanum Pen", "Nanum Pen Script", "Ink Free", "Segoe Print", "Bradley Hand", cursive';
+const CX = 500;
+
+const ERA_LIST = [[0, DURATION, () => sceneJar()]];
+// the voice lines (estimated): id, text, t0, t1
+const LINES = [
+  ['breath', '뿌리도 숨을 쉽니다.', 0.5, 1.8],
+  ['big', '큰 기포는 떠올라 금방 터지지만,', 2.2, 4.4],
+  ['stay', '산소 나노버블은 물속에 오래 머물며', 4.75, 7.35],
+  ['give', '뿌리 곁에 산소를 채워 줍니다.', 7.65, 9.65],
+  ['sign', '화우나노텍.', 12.3, 13.2],
+];
+const SHOTS = [
+  ['jar', 0, 0.0, 4.6, 'a drooping sprout in a jar; big bubbles rise and pop at the surface'],
+  ['close', 0, 4.6, 12.0, 'into the water: the nanobubble stays, drifts to the root, gives it oxygen'],
+  ['back', 0, 12.0, 15.0, 'back to the jar: the sprout stands; signature'],
+];
+const TIMELINE = {
+  width: W, height: H, fps: FPS, bpm: BPM, duration: DURATION, frames: NFRAMES, loop: LOOP_T, safe: SAFE,
+  shots: SHOTS.map(([key, era, t0, t1, title], i) => ({ id: i + 1, key, era, t0, t1, title })),
+  cuts: [],
+  morphs: [],
+  cues: {
+    root: 0.25, droop: 1.0,                    // the root pencilled in; the sprout sags
+    b1: 2.25, b2: 2.75, b3: 3.25, rise: 0.9,   // big bubbles drawn, then rise for `rise` s and pop
+    sweat: 3.75,
+    pushIn: 4.5, pushEnd: 5.25,                // the camera dives into the water
+    hero: 5.25, heroInk: 5.75,                 // the nanobubble pencilled, then inked and coloured
+    pass: 6.25,                                // a big bubble zips past it; it stays
+    drift: 7.75, arrive: 9.5,                  // it drifts to the root hair
+    hush: 9.75, gift: 10.5,                    // silence, then the payoff
+    hairs: 10.75, pullBack: 11.75, pullEnd: 12.75,
+    stand: 12.0, check: 12.75, sign: 12.25,
+  },
+  acts: [
+    { name: '1 Breath', role: 'build', t0: 0.0, t1: 2.0 },
+    { name: '2 Big bubbles', role: 'journey', t0: 2.0, t1: 4.6 },
+    { name: '3 It stays', role: 'peak', t0: 4.6, t1: 9.75 },
+    { name: '4 Hush', role: 'silence', t0: 9.75, t1: 10.5 },
+    { name: '5 Oxygen', role: 'gift', t0: 10.5, t1: 12.0 },
+    { name: '6 Standing', role: 'goodbye', t0: 12.0, t1: 15.0 },
+  ],
+  board: [
+    { t: 1.5, title: '뿌리도 숨을 쉰다 — the sprout sags', sound: 'quiet, pencil scratch', next: 'bubbles are drawn' },
+    { t: 3.6, title: '큰 기포는 금방 터진다', sound: 'pops on 8ths', next: 'dive into the water' },
+    { t: 6.5, title: '나노버블은 머문다 — a big one zips past', sound: 'hero motif: a rising fifth', next: 'it drifts to the root' },
+    { t: 9.9, title: 'beside the root, held', sound: 'silence', next: 'the payoff hit' },
+    { t: 11.2, title: 'oxygen: the root is inked, new hairs', sound: 'the loudest stab + sub', next: 'pull back' },
+    { t: 14.0, title: 'the sprout stands — 화우나노텍', sound: 'a flat chord decays', next: 'end' },
+  ],
+  narration: LINES.map(([id, text, t0, t1]) => ({ id, text, t0, t1 })),
+};
+window.TIMELINE = TIMELINE;
