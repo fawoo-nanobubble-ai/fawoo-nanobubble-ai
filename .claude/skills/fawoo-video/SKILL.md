@@ -43,18 +43,11 @@ description: 화우나노텍 홍보·기술 설명·투자 IR용 영상을 만�
 (video/OpenMontage 에서) 화우나노텍 강알칼리 폐수 중화 기술을 소개하는 75초 다큐 톤 영상. 실사 스톡 영상만, 한국어 내레이션, 차분한 음악.
 ```
 
-## 내레이션(음성): VoiceStudio
+## 내레이션(음성)
 
-영상에 사람 목소리 내레이션이 필요하면 `/voicestudio` 스킬을 쓴다. VoiceStudio는 내 PC에서 돌아가는 무료 음성 복제·TTS(텍스트→음성) 앱이다(AGPL-3.0, 로컬 처리라 음성 데이터가 외부로 나가지 않는다).
-
-- 설치(내 PC, 1회): macOS/Linux `curl -fsSL https://voicestudio.sh/install | sh` · Windows PowerShell `irm https://voicestudio.sh/install | iex` · 또는 [Releases](https://github.com/debpalash/VoiceStudio/releases/latest)에서 설치 파일.
-- 하드웨어: NVIDIA GPU(CUDA)·Apple Silicon은 가속, GPU 없으면 CPU로 느리게 동작(여유 디스크 CPU 약 5GB, CUDA 약 9GB). 기본 모델 최초 다운로드 약 2.3GB. CPU 노트북에서 한국어 복제는 MOSS-TTS-Nano 엔진이 가볍다.
-- 포트: 기본 3900. Windows가 예약한 포트면 앱이 4900 등으로 옮기므로 MCP 주소도 맞춰 바꾼다. 확인: `irm http://127.0.0.1:3900/health`
-- Claude Code 연결(앱 실행 중일 때): `claude mcp add -s user --transport http voicestudio http://127.0.0.1:3900/mcp/ --header "X-OmniVoice-Client-Id: claude-code"`
-- 흐름: 대표·담당자 음성 3초 이상 깨끗한 샘플 → 음성 프로필 저장 → 대본을 WAV로 생성 → HyperFrames/Remotion 타임라인에 오디오로 배치(`/hyperframes-audio`).
-- **회사 영상에는 기본 엔진(OmniVoice)을 쓰지 않는다.** 앱은 무료(AGPL-3.0, 상업 사용 허용)지만 OmniVoice 모델 가중치는 CC-BY-NC(비상업 전용)다. 상업용은 Apache-2.0인 MOSS-TTS-Nano(한국어·CPU 실시간) 또는 Confucius4-TTS(한국어, GPU 권장), MIT인 GPT-SoVITS(한국어 자연스러움 최상, 별도 서버)를 쓴다. 앱 Model Catalogue의 초록 서류가방 아이콘 = 상업 사용 가능.
-- **본인 동의를 받은 목소리만 복제한다.** 제3자 음성 무단 복제는 퍼블리시티권·개인정보 문제가 된다.
-- 앱이 꺼져 있거나 Claude Code 클라우드 세션이면 `localhost:3900`에 닿지 않는다. 이때는 대본·자막까지만 만들고, 음성 생성은 로컬에서 한다.
+- 중요한 영상은 사람이 직접 녹음한다(휴대폰, 조용한 방). 파일을 받으면 타임라인·자막을 맞춘다.
+- TTS(텍스트→음성)를 쓸 때는 대본부터 보정한다: 숫자·약어를 한글로 풀어 쓰고("10⁹" → "십억 개", "CCU" → "탄소 포집 활용"), 문장을 짧게 끊고, 쉼표로 숨 쉴 자리를 만든다.
+- 로컬 음성 복제(VoiceStudio)는 검토 후 쓰지 않기로 했다. 기본 엔진(OmniVoice) 가중치가 비상업(CC-BY-NC)이고, CPU 노트북에서 상업용으로 쓸 수 있는 엔진은 품질이 낮다.
 
 ## 실행 환경 메모
 
@@ -70,5 +63,4 @@ description: 화우나노텍 홍보·기술 설명·투자 IR용 영상을 만�
 - Remotion 스킬: https://github.com/remotion-dev/skills (`remotion-*` 12개)
 - HyperFrames 스킬: https://github.com/heygen-com/hyperframes (`hyperframes*`, `general-video`, `motion-graphics` 등 21개)
 - OpenMontage: https://github.com/calesthio/OpenMontage
-- VoiceStudio 스킬: https://github.com/debpalash/VoiceStudio (`voicestudio`)
 - 각 스킬 폴더의 `SOURCE.txt`에 커밋 해시 기록.
