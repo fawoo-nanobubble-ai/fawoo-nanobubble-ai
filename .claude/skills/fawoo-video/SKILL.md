@@ -48,8 +48,9 @@ description: 화우나노텍 홍보·기술 설명·투자 IR용 영상을 만�
 영상에 사람 목소리 내레이션이 필요하면 `/voicestudio` 스킬을 쓴다. VoiceStudio는 내 PC에서 돌아가는 무료 음성 복제·TTS(텍스트→음성) 앱이다(AGPL-3.0, 로컬 처리라 음성 데이터가 외부로 나가지 않는다).
 
 - 설치(내 PC, 1회): macOS/Linux `curl -fsSL https://voicestudio.sh/install | sh` · Windows PowerShell `irm https://voicestudio.sh/install | iex` · 또는 [Releases](https://github.com/debpalash/VoiceStudio/releases/latest)에서 설치 파일.
-- 하드웨어: NVIDIA GPU(CUDA)·Apple Silicon은 가속, GPU 없으면 CPU로 느리게 동작. 기본 모델 최초 다운로드 약 2.3GB.
-- Claude Code 연결(앱 실행 중일 때): `claude mcp add --transport http voicestudio http://127.0.0.1:3900/mcp/ --header "X-OmniVoice-Client-Id: claude-code"`
+- 하드웨어: NVIDIA GPU(CUDA)·Apple Silicon은 가속, GPU 없으면 CPU로 느리게 동작(여유 디스크 CPU 약 5GB, CUDA 약 9GB). 기본 모델 최초 다운로드 약 2.3GB. CPU 노트북에서 한국어 복제는 MOSS-TTS-Nano 엔진이 가볍다.
+- 포트: 기본 3900. Windows가 예약한 포트면 앱이 4900 등으로 옮기므로 MCP 주소도 맞춰 바꾼다. 확인: `irm http://127.0.0.1:3900/health`
+- Claude Code 연결(앱 실행 중일 때): `claude mcp add -s user --transport http voicestudio http://127.0.0.1:3900/mcp/ --header "X-OmniVoice-Client-Id: claude-code"`
 - 흐름: 대표·담당자 음성 3초 이상 깨끗한 샘플 → 음성 프로필 저장 → 대본을 WAV로 생성 → HyperFrames/Remotion 타임라인에 오디오로 배치(`/hyperframes-audio`).
 - **본인 동의를 받은 목소리만 복제한다.** 제3자 음성 무단 복제는 퍼블리시티권·개인정보 문제가 된다.
 - 앱이 꺼져 있거나 Claude Code 클라우드 세션이면 `localhost:3900`에 닿지 않는다. 이때는 대본·자막까지만 만들고, 음성 생성은 로컬에서 한다.
