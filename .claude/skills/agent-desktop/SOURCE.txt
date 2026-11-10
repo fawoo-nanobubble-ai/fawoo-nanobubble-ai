@@ -1,0 +1,1 @@
+https://github.com/vercel-labs/agent-desktop/tree/ab7dfb218cddc1594aa1d87a5bfcd0ac76da2276/skills/agent-desktop (Apache-2.0). Requires the agent-desktop CLI (npm install -g agent-desktop) on the machine that runs Claude Code.
