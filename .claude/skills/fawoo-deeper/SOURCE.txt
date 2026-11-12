@@ -1,0 +1,4 @@
+source: https://github.com/DannyMac180/skills/tree/main/be-ambitious @ 5b02caf (MIT, Copyright (c) 2026 Dan McAteer)
+idea: prompt shared by Felix Rieseberg (Anthropic), quoted in the be-ambitious SKILL.md
+local modifications: rewritten in Korean for FAWOO NANOTECH; added decision anchoring (step 0), numeric pass/fail criteria, source grading A/B/C, FAWOO lens (feasibility, revenue, scalability, risk), domain starting points, "딥퍼 바로" run mode, hand-off to repo skills
+replaces: reborn-deeper 1.0.0 (REBORN LABS, MIT) Korean "deeper" skill, removed from this repo

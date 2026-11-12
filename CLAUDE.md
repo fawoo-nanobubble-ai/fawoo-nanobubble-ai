@@ -77,7 +77,7 @@
 
 | 하고 싶은 일 | 먼저 쓸 스킬 |
 |---|---|
-| 지시를 전문가 수준으로 다시 쓰기 | `deeper` |
+| 지시를 전문가 수준으로 다시 쓰기 (「딥퍼」) | `fawoo-deeper` |
 | 반복 업무를 플레이북으로 | `delegation-loop` |
 | 검색·AI 답변 노출 (SEO/AEO/GEO/네이버) | `fire-your-seo-agency` |
 | 정책 보고서·규제 개선 건의 | `policy-report` |
