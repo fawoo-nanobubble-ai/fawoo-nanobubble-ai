@@ -42,19 +42,19 @@
 네가 이 컴퓨터의 앱 창을 다룰 수 있도록 에이전트 데스크톱을 갖추고, 끝나면 아래 표로 보여 줘라.
 표: 항목 · 상태 · 내가 할 일 (본체, 스킬, 손쉬운 사용)
 본체: npm install -g agent-desktop
-스킬: npx skills add https://github.com/vercel-labs/agent-desktop --skill agent-desktop -g
+스킬: npx skills add https://github.com/vercel-labs/agent-desktop --skill agent-desktop -g -a claude-code -y
 - 위 두 명령 말고, 공식 저장소 https://github.com/vercel-labs/agent-desktop 와 npm 밖에서 받은 것은 쓰지 마라.
 - 깔고 나면 agent-desktop status 로 권한을 읽고, 맥에서 손쉬운 사용이 꺼져 있으면 agent-desktop permissions --guide 로 설정 창을 띄워라.
 - 내가 켰다고 하면 agent-desktop permissions 로 다시 읽어 표를 고쳐라.
 ```
 
-`-g` = 전역 설치. 어느 폴더에서 클로드 코드를 열어도 스킬이 잡힌다.
+`-g` = 전역 설치(어느 폴더에서든 스킬 인식), `-a claude-code` = 클로드 코드에만 설치, `-y` = 확인 질문 생략. 이 옵션이 없으면 "Which agents do you want to install to?" 선택 화면이 뜬다.
 
 ### 방법 B — 직접 명령 입력
 
 ```bash
 npm install -g agent-desktop
-npx skills add https://github.com/vercel-labs/agent-desktop --skill agent-desktop -g
+npx skills add https://github.com/vercel-labs/agent-desktop --skill agent-desktop -g -a claude-code -y
 agent-desktop status
 ```
 
