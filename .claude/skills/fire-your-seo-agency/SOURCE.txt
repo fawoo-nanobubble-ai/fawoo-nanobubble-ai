@@ -1,1 +1,2 @@
 source: https://github.com/leopard627/fire-your-seo-agency @ 5f7249f
+local modifications: see git log for .claude/skills/fire-your-seo-agency (Korean meta lengths, llms.txt caveat, SSR/404 checks, CLAUDE.md hook)

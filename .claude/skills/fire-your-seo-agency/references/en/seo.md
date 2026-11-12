@@ -28,9 +28,12 @@ without JavaScript.**
 
 ## 3. Meta
 
-- [ ] Title 50–60 chars: key term first, brand last
-- [ ] Description 150–160 chars: a sentence that gives a reason to click (don't put
-      disclaimers/warnings in the description — they only kill CTR)
+- [ ] Title 50–60 chars (Korean/CJK: ~25–30 chars): key term first, brand last
+- [ ] Description 150–160 chars (Korean/CJK: ~70–80 chars): a sentence that gives a reason
+      to click (don't put disclaimers/warnings in the description — they only kill CTR)
+- ℹ️ Google truncates by **pixel width** (title ≈ 600px), not character count. A CJK glyph is
+  roughly twice as wide as an average Latin one, so English limits overflow. Treat the numbers
+  as a starting point and check the live SERP for truncation
 - [ ] Unique per page — hundreds of pages sharing one templated description gets flagged
       as duplication
 - [ ] OG image: the face of every share. Dynamic generation per page type is ideal

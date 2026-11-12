@@ -23,7 +23,7 @@ half of AEO and GEO.
 
 ## The shape of an extractable sentence
 
-- [ ] **Direct answer in the first paragraph**: one sentence (~40 chars), top of the page.
+- [ ] **Direct answer in the first paragraph**: one sentence (Korean ~40 chars / English ~20–30 words), top of the page.
       "Bottom line: X's next earnings release is November 14, 2026 (after market close)."
 - [ ] **Each sentence states facts independently**: context-dependent sentences like
       "the figure mentioned above" become meaningless when extracted. Every paragraph
