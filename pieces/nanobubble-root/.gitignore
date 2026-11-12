@@ -1,0 +1,5 @@
+renders/*.wav
+renders/final*.mp4
+renders/narration.srt
+review/
+frames/

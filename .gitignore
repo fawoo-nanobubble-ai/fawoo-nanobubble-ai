@@ -1,0 +1,4 @@
+video/OpenMontage/
+node_modules/
+*.mp4
+.hyperframes/
