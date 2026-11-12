@@ -1,0 +1,3 @@
+https://github.com/Jakeschincariol/youtube-agent-skill @ a2feb21 (2026-09-16) — skills/yt-chapters, MIT
+Local patch (FAWOO, 2026-11-12): Korean support. See "FAWOO local patch" comments in the .py file.
+Also: deterministic chapter-title ordering (upstream sorted a set; ties came out in random hash order).
