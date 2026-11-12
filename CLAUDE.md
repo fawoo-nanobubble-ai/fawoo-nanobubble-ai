@@ -14,8 +14,8 @@
 | 항목 | 값 | 상태 |
 |---|---|---|
 | 회사명 | 화우나노텍 / FAWOO NANOTECH | 확인 |
-| 웹사이트 | www.hwawoo-nano.com | 확인 (https 지원 여부 미확인) |
-| 문의 | info@hwawoo-nano.com | 확인 |
+| 웹사이트 | https://www.fawoonanotech.com | 확인 (검색 색인·OI마켓 기업정보 기재). 2026-11-12 해외 서버 접속 시 403 차단 — 해외 IP 차단 설정 확인 필요 |
+| 문의 | fawoonano@naver.com | 확인 (2026-11-12 회사 확인). 이전 주소 info@hwawoo-nano.com은 도메인이 DNS에서 조회되지 않아 쓰지 않음 |
 | 주 시장 | 한국(네이버 필수) + 해외(영문) | 확인 |
 
 ## 3. 원출처 수치 (Source of truth)

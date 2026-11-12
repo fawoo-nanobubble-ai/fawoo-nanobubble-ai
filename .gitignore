@@ -2,3 +2,6 @@ video/OpenMontage/
 node_modules/
 *.mp4
 .hyperframes/
+
+# Playwright MCP session output (screenshots, page snapshots, console logs)
+.playwright-mcp/
