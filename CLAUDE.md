@@ -1,11 +1,98 @@
 # CLAUDE.md
 
-## YouTube 스킬 (`/yt-*`, `.claude/skills/yt-*`)
+이 저장소에서 일하는 Claude가 매 세션 먼저 읽는 작업 기준이다. 바뀐 규칙은 여기 한 곳에서 고친다.
+
+## 1. 이 저장소가 하는 일
+
+- 화우나노텍(FAWOO NANOTECH)의 **공개** 저장소다. 누구나 읽을 수 있다.
+- 목적: 나노버블 기술과 응용 분야를 검색엔진·AI 답변엔진(ChatGPT, Perplexity, Claude, 네이버 AI 브리핑 등)이 인용하는 1차 소스로 만든다. 기술 백서는 자매 저장소 `fawoo-nanobubble-ai/nanobubble-technology`에 있다.
+- **커밋 금지**: 단가, 고객사명(공개 보도된 경우 제외), 미공개 시험 데이터, 계약·투자 조건, IR(투자자 설명) 자료, 개인 연락처, 녹취 원문. 애매하면 커밋 전에 묻는다.
+- 사내 원자료는 Google Drive `FAWOO_ARCHIVE`(PC `D:\FAWOO_ARCHIVE`와 동기화)에 있다. 여기서 공개해도 되는 사실만 출처를 달아 옮긴다.
+
+## 2. 기본 정보
+
+| 항목 | 값 | 상태 |
+|---|---|---|
+| 회사명 | 화우나노텍 / FAWOO NANOTECH | 확인 |
+| 웹사이트 | www.hwawoo-nano.com | 확인 (https 지원 여부 미확인) |
+| 문의 | info@hwawoo-nano.com | 확인 |
+| 주 시장 | 한국(네이버 필수) + 해외(영문) | 확인 |
+
+## 3. 원출처 수치 (Source of truth)
+
+`미확인` 행은 README·백서·메타데이터·JSON-LD 어디에도 사실로 쓰지 않는다. 근거(측정 장비·조건·일자·성적서)가 채워진 행만 인용 가능한 문장으로 만든다. 값이 바뀌면 이 표, 이 저장소 README, 백서 저장소 README를 함께 고친다.
+
+<!-- SOT-TABLE:START -->
+| 지표 | 값 | 측정 방법 | 일자 | 근거 | 상태 |
+|---|---|---|---|---|---|
+| 기포 농도 | > 1.0 × 10⁹ 개/mL | ? | ? | ? | 미확인 |
+| 기포 크기 | < 100 nm | ? | ? | ? | 미확인 |
+| 무약품 공정 | 가스 + 물만 사용 | 공정 설계 | — | — | 확인 |
+<!-- SOT-TABLE:END -->
+
+## 4. 사업 도메인 용어
+
+| 용어 | 뜻 |
+|---|---|
+| 나노버블(울트라파인 버블) | 지름 1µm 미만 기포. ISO 20480-1 기준 명칭은 ultrafine bubble |
+| NCC 강알칼리 폐수 중화 | NCC(나프타 분해 설비)에서 나오는 강알칼리 폐수의 pH를 낮추는 공정 |
+| CCU | Carbon Capture & Utilization(탄소 포집·활용). 중심축은 CCU 콘크리트 |
+| 나노버블수 관수 | 산소·이산화탄소 나노버블수를 농업용 물로 공급하는 응용 |
+| GEO / AEO / LLMO | 생성형 AI·답변엔진·대규모 언어모델이 우리 자료를 인용하게 만드는 최적화 |
+
+## 5. 응용 분야와 타깃 질문
+
+질문 하나 = 페이지 하나. 초기 백로그이며 검색어 데이터로 보강한다.
+
+| 분야 | 타깃 질문 (한국어) | Target query (EN) |
+|---|---|---|
+| NCC 강알칼리 폐수 중화 | 강알칼리 폐수 중화 방법 / 황산 없이 폐수 pH 낮추는 법 | alkaline wastewater neutralization without acid |
+| CO₂ 나노버블 중화 | CO₂ 나노버블 폐수 중화 원리 | CO2 nanobubble wastewater neutralization |
+| CCU 콘크리트 | 탄소 광물화 콘크리트 / CCU 콘크리트 원리 | CO2 mineralization concrete nanobubble |
+| 농업 관수 | 산소 나노버블수 관수 효과 / CO₂ 나노버블 농업 | oxygen nanobubble irrigation effect |
+| 기술 일반 | 나노버블이란 / 나노버블 농도 측정 방법 | what are nanobubbles / how to measure nanobubble concentration |
+
+## 6. 글쓰기·분석 규칙
+
+1. 첫 줄은 결론이다.
+2. 모든 수치 문단은 [주어 + 수치 + 기준일 + 측정 방법] 4요소를 갖춘다. 출처 없는 수치는 `[미검증]`을 붙이고, 지어내지 않는다.
+3. 효과(수율·절감액·생육 개선 등)는 시험 조건과 대조군이 있는 자료만 쓴다. 경쟁사 실명 비교는 같은 조건의 측정 근거가 있을 때만 쓴다(표시광고법 제5조 실증 책임).
+4. 최상급 표현("세계 최고", "most advanced") 금지.
+5. 법규·국제 기준은 원문을 확인하고 조항 번호까지 인용한다. 기억으로 쓰지 않는다.
+6. 약어·전문용어는 처음 나올 때 괄호로 뜻을 단다.
+7. 사업 판단은 사업성 → 확장성 → 구조화 순서, 평가 축은 ① 실제 적용 가능성 ② 수익 구조 ③ 확장성 ④ 리스크.
+8. 길면 표·도식으로 구조화한다.
+9. 사람이 쓴 글처럼 쓴다. 쓰지 않는 것: "~에 대해 알아보겠습니다", "결론적으로", "다양한/혁신적인" 남발, 문단마다 이모지, "~할 수도 있습니다" 같은 얼버무림.
+
+## 7. 스킬 지도 (`.claude/skills/`)
+
+| 하고 싶은 일 | 먼저 쓸 스킬 |
+|---|---|
+| 지시를 전문가 수준으로 다시 쓰기 | `deeper` |
+| 반복 업무를 플레이북으로 | `delegation-loop` |
+| 검색·AI 답변 노출 (SEO/AEO/GEO/네이버) | `fire-your-seo-agency` |
+| 정책 보고서·규제 개선 건의 | `policy-report` |
+| 발표 덱·IR 슬라이드 | `fawoo-motion-deck` |
+| 영상 전반 (홍보·설명·IR) | `fawoo-video` → `hyperframes` / `remotion-*` |
+| 세로 쇼츠·릴스 | `모션편집` |
+| 유튜브 대본·제목·분석 | `yt-*` (아래 8절) |
+| 웹페이지·랜딩 디자인 | `hallmark`, `impeccable` |
+| 데스크톱 앱 조작 / 웹 수집 | `agent-desktop`, `scrapling-official` |
+| 계획 검증 / 디버깅 / 완료 전 확인 | `grilling`, `systematic-debugging`, `verification-before-completion` |
+| 새 스킬 찾기 | `find-skills` |
+
+새 스킬은 `.claude/skills/<이름>/SKILL.md`로 만들고, 외부 스킬은 `LICENSE`와 `SOURCE.txt`(원본 주소·커밋)를 함께 넣는다. 공개 저장소이므로 내부 정보가 들어가는 스킬은 두지 않는다.
+
+## 8. YouTube 스킬 (`/yt-*`)
 
 - 결과물은 한국어로 쓴다. 스킬 원문이 영어여도 대본·제목·설명·답글은 한국어로 낸다.
-- 말투 파일(voice.md)은 `~/.claude/youtube/voice.md`를 먼저 찾고, 없으면 이 레포의
-  `.claude/youtube/voice.md`를 읽는다. voice.md를 새로 쓰거나 고칠 때는 레포 파일에 저장하고
-  `~/.claude/youtube/voice.md`에도 복사한다(클라우드 세션은 홈 폴더가 매번 초기화된다).
-- `hookscore.py`는 영어 단어 목록으로 점수를 매긴다. 한국어 훅은 영어로 옮긴 문장으로 채점하고,
-  그 점수는 참고용이라고 밝힌다.
+- 말투 파일은 `~/.claude/youtube/voice.md`를 먼저 찾고, 없으면 `.claude/youtube/voice.md`를 읽는다. 새로 쓰거나 고칠 때는 레포 파일에 저장하고 `~/.claude/youtube/voice.md`에도 복사한다(클라우드 세션은 홈 폴더가 매번 초기화된다).
+- **voice.md에는 분석한 말투 규칙만 쓴다. 녹취·대본 원문은 커밋하지 않는다**(공개 저장소).
+- `hookscore.py`는 영어 단어 목록으로 채점한다. 한국어 훅은 영어로 옮긴 문장으로 채점하고 참고용이라고 밝힌다.
 - 사용 안내: `docs/youtube-skills-guide.md`
+
+## 9. Git
+
+- 기본 브랜치는 `main`. 작업은 별도 브랜치에서 하고 PR로 합친다.
+- 커밋 메시지는 무엇을 왜 바꿨는지 한 줄로 시작한다.
+- 영상·대용량 원본은 올리지 않는다(파일당 100MB 넘으면 GitHub가 거부). Drive에 두고 링크만 남긴다.
