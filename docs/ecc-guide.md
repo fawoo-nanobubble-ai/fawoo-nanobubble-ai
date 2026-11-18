@@ -1,12 +1,12 @@
 # ECC 스킬 사용 안내
 
-ECC(github.com/affaan-m/ECC, MIT, v2.2.3) 중 화우나노텍 업무에 쓰는 스킬 18개와 에이전트 5개만 골라 `.claude/`에 넣었다. 저장소에 들어 있으므로 이 저장소로 여는 모든 클라우드 세션에서 설치 없이 바로 쓴다.
+ECC(github.com/affaan-m/ECC, MIT, v2.2.3) 중 화우나노텍 업무에 쓰는 스킬 22개와 에이전트 5개만 골라 `.claude/`에 넣었다. 저장소에 들어 있으므로 이 저장소로 여는 모든 클라우드 세션에서 설치 없이 바로 쓴다.
 
 ## 왜 전체 설치를 안 했나
 
 | 항목 | 전체 플러그인(`ecc@ecc`) | 이 저장소 선별본 |
 |---|---|---|
-| 스킬 / 에이전트 | 425 / 72 | 18 / 5 |
+| 스킬 / 에이전트 | 425 / 72 | 22 / 5 |
 | 매 세션 상시 토큰 | 약 49,700 (`claude plugin details ecc@ecc` 측정, 2026-11-18) | 약 3,200 (설명문 12,674자 ÷ 4, 추정치) |
 | 훅(hook, 도구 호출마다 자동 실행되는 스크립트) | 8종 (PreToolUse·SessionStart 등) | 없음 |
 | 내용 | Kotlin·Django·홈랩·헬스케어 등 개발 스택 위주 | 리서치·경쟁분석·IR·콘텐츠·특허/논문·자동매매 보안 |
@@ -25,12 +25,28 @@ ECC(github.com/affaan-m/ECC, MIT, v2.2.3) 중 화우나노텍 업무에 쓰는 �
 | 논문·제안서 평가 | `scientific-thinking-scholar-evaluation` | "이 프리프린트 근거 수준 평가해줘" |
 | 미국 특허 조회 | `scientific-db-uspto-database` | "CO₂ 나노버블 중화 관련 미국 특허 선행조사" |
 | IR·피치덱·투자 메모 | `investor-materials` | "투자 원페이저 초안" |
-| 장문 글 / 채널별 콘텐츠 | `article-writing`, `content-engine` | "백서 요약을 링크드인·블로그용으로" |
+| 장문 글 / 채널별 콘텐츠 | `article-writing`, `content-engine` | "백서 요약을 블로그용으로" |
+| **X·링크드인 게시** | `fawoo-social-post`(자체) → `brand-voice` → `crosspost` → `x-api` / `social-publisher` | "CO₂ 중화 결과 X랑 링크드인에 올리자" |
 | 자동매매 봇 보안 점검 | `llm-trading-agent-security` | "선물 자동매매 봇 키 관리·손실 한도 점검" |
 | AI 시스템 비용 줄이기 | `cost-aware-llm-pipeline` | "모델 라우팅으로 API 비용 줄이는 구조" |
 | 코드 짜기 전 기존 도구 찾기 / 테스트 먼저 | `search-first`, `tdd-workflow` | "백테스트 모듈 TDD로" |
 
 에이전트(`.claude/agents/`): `planner`(작업 계획), `architect`(시스템 설계), `security-reviewer`(보안 점검), `marketing-agent`(캠페인·카피), `seo-specialist`(기술 SEO 점검). "planner 에이전트로 계획 세워줘"처럼 이름을 부르면 된다.
+
+## X·링크드인 게시 흐름
+
+`fawoo-social-post`가 입구다. ECC 스킬들은 범용이라 화우나노텍 수치 규칙을 모르므로, 이 자체 스킬이 순서를 강제한다.
+
+```text
+원문(README·백서·보도자료) → 수치 검증표(CLAUDE.md 3절) → 말투(brand-voice)
+→ 채널별 문안(crosspost) → 사용자 승인 → 게시(수동 / x-api / social-publisher)
+```
+
+| 게시 경로 | 필요한 것 | 권장 |
+|---|---|---|
+| 수동 붙여넣기 | 없음 | 첫 배포 |
+| X API (`x-api`) | X 개발자 계정·쓰기 권한 앱·OAuth 키 | 정기 게시가 잦아지면 |
+| SocialClaw (`social-publisher`) | 외부 유료 서비스 가입, 계정 연결을 제3자에 위탁 | 예약·다채널이 필요할 때, 대표 승인 후 |
 
 ## 쓸 때 지킬 것
 

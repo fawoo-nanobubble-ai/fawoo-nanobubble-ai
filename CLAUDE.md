@@ -91,6 +91,7 @@
 | 새 스킬 찾기 | `find-skills` |
 | 시장·경쟁 분석 / 의사결정 / 신사업 검증 | `market-research`, `competitive-platform-analysis` → `benchmark-methodology` → `competitive-report-structure`, `council`, `product-lens` (ECC) |
 | 논문·특허 조사 / IR 자료 / 장문·채널 콘텐츠 | `scientific-*`, `research-ops`, `investor-materials`, `article-writing`, `content-engine` (ECC) |
+| X·링크드인 게시 | `fawoo-social-post` (수치 검증·승인 강제) → `brand-voice`, `crosspost`, `x-api`, `social-publisher` (ECC) |
 | 자동매매·AI 시스템 개발 | `llm-trading-agent-security`, `cost-aware-llm-pipeline`, `search-first`, `tdd-workflow` (ECC). 사용 안내: `docs/ecc-guide.md` |
 
 새 스킬은 `.claude/skills/<이름>/SKILL.md`로 만들고, 외부 스킬은 `LICENSE`와 `SOURCE.txt`(원본 주소·커밋)를 함께 넣는다. 공개 저장소이므로 내부 정보가 들어가는 스킬은 두지 않는다.
