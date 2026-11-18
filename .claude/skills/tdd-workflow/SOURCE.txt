@@ -1,0 +1,5 @@
+Source: https://github.com/affaan-m/ECC/tree/3f14a103a8694e51c1df9a806217a6d0b5f7a6f7/skills/tdd-workflow
+Commit: 3f14a103a8694e51c1df9a806217a6d0b5f7a6f7
+Version: ECC 2.2.3
+License: MIT (Copyright (c) 2026 Affaan Mustafa)
+Imported: 2026-11-18, unmodified

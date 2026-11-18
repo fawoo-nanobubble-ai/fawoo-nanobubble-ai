@@ -1,0 +1,6 @@
+Source: https://github.com/affaan-m/ECC/tree/3f14a103a8694e51c1df9a806217a6d0b5f7a6f7/agents
+Files: planner.md architect.md security-reviewer.md marketing-agent.md seo-specialist.md
+Commit: 3f14a103a8694e51c1df9a806217a6d0b5f7a6f7
+Version: ECC 2.2.3
+License: MIT (see ECC_LICENSE)
+Imported: 2026-11-18, unmodified
